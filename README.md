@@ -107,8 +107,7 @@ client/
 ├── purchase.html
 ├── purchase-list.html
 ├── purchase-view.html
-├── README.md
-└──
+└── README.md
 ```
 
 ---
