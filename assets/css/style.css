@@ -1,0 +1,14 @@
+#hamburger-btn i {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.nav-link {
+    @apply text-gray-700 hover:text-blue-600 transition;
+}
+.nav-link.active {
+    @apply text-blue-600 font-bold;
+}
+.nav-link.active i {
+    color: #2563eb;
+}

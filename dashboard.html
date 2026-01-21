@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Dashboard | Procurement</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+        <script src="assets/js/config.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/utils.js"></script>
+        <script src="assets/js/navbar.js"></script>
+    </head>
+
+    <body class="bg-gray-100 min-h-screen">
+        <div id="navbar"></div>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+            <div class="mb-10">
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <p class="text-gray-500 mt-1">
+                    Overview of your procurement activity today.
+                </p>
+            </div>
+
+            
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+                
+                <div
+                    class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-sm text-gray-500">Total Items</div>
+                            <div
+                                id="total-items"
+                                class="text-3xl font-bold text-gray-900">
+                                -
+                            </div>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-box text-blue-600 text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-3">
+                        All registered items
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-sm text-gray-500">Suppliers</div>
+                            <div
+                                id="total-suppliers"
+                                class="text-3xl font-bold text-gray-900">
+                                -
+                            </div>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-industry text-green-600 text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-3">
+                        Active suppliers
+                    </div>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl shadow-sm p-6 hover:shadow-md transition">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <div class="text-sm text-gray-500">Today</div>
+                            <div
+                                id="today-date"
+                                class="text-lg font-semibold text-gray-900">
+                                -
+                            </div>
+                        </div>
+                        <div
+                            class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-calendar-day text-purple-600 text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="text-xs text-gray-400 mt-3">Current date</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                <a
+                    href="items.html"
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl">📦</div>
+                        <div>
+                            <div class="font-semibold">Items</div>
+                            <div class="text-sm text-gray-500">
+                                Manage items & stock
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a
+                    href="suppliers.html"
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl">🏭</div>
+                        <div>
+                            <div class="font-semibold">Suppliers</div>
+                            <div class="text-sm text-gray-500">
+                                Supplier management
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a
+                    href="purchase-list.html"
+                    class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <div class="flex items-center gap-4">
+                        <div class="text-3xl">🛒</div>
+                        <div>
+                            <div class="font-semibold">Purchases</div>
+                            <div class="text-sm text-gray-500">
+                                View transactions
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-semibold text-lg">Recent Purchases</h2>
+                    <a
+                        href="purchase-list.html"
+                        class="text-blue-600 text-sm hover:underline">
+                        View all
+                    </a>
+                </div>
+
+                <div id="recent-purchases" class="divide-y">
+                    <div class="text-sm text-gray-400 py-6 text-center">
+                        Loading data...
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <script src="assets/js/pages/dashboard.js"></script>
+            
+        </script>
+    </body>
+</html>

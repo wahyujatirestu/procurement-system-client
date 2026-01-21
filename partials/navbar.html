@@ -1,0 +1,83 @@
+<header class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-lg font-bold text-gray-800">Procurement System</h1>
+
+        <!-- Desktop Menu -->
+        <nav id="nav-desktop" class="hidden md:flex gap-6 text-sm font-medium">
+            <a id="nav-dashboard" href="dashboard.html" class="nav-link"
+                >Dashboard</a
+            >
+            <a id="nav-items" href="items.html" class="nav-link">Items</a>
+            <a id="nav-suppliers" href="suppliers.html" class="nav-link"
+                >Suppliers</a
+            >
+
+            <div class="relative">
+                <button
+                    id="nav-purchase"
+                    class="nav-link flex items-center gap-2">
+                    Purchase
+                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                </button>
+
+                <div
+                    id="purchase-dropdown"
+                    class="hidden absolute mt-2 w-44 bg-white shadow rounded-lg">
+                    <a
+                        href="purchase.html"
+                        class="block px-4 py-2 hover:bg-gray-100"
+                        >Purchase</a
+                    >
+                    <a
+                        href="purchase-list.html"
+                        class="block px-4 py-2 hover:bg-gray-100"
+                        >Purchase List</a
+                    >
+                </div>
+            </div>
+
+            <!-- Logout Desktop -->
+            <button
+                id="logout-btn-desktop"
+                class="text-sm text-red-600 hover:underline">
+                Logout
+            </button>
+        </nav>
+
+        <!-- Mobile Right Buttons -->
+        <div class="flex items-center gap-4 md:hidden">
+            <button id="hamburger-btn" class="text-gray-700">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="nav-mobile" class="hidden md:hidden bg-white border-t">
+        <a href="dashboard.html" class="block px-6 py-3 border-b">Dashboard</a>
+        <a href="items.html" class="block px-6 py-3 border-b">Items</a>
+        <a href="suppliers.html" class="block px-6 py-3 border-b">Suppliers</a>
+
+        <div class="border-t">
+            <button
+                id="mobile-purchase-btn"
+                class="w-full text-left px-6 py-3 flex justify-between items-center">
+                Purchase
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div id="mobile-purchase-dropdown" class="hidden">
+                <a href="purchase.html" class="block px-10 py-3 border-b"
+                    >Purchase</a
+                >
+                <a href="purchase-list.html" class="block px-10 py-3"
+                    >Purchase List</a
+                >
+            </div>
+        </div>
+
+        <!-- Logout Mobile -->
+        <a href="#" id="mobile-logout" class="block px-6 py-3 text-red-600"
+            >Logout</a
+        >
+    </nav>
+</header>

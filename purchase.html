@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Create Purchase | Procurement</title>
+
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- jQuery & SweetAlert -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+        <!-- Core JS -->
+        <script src="assets/js/config.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/utils.js"></script>
+        <script src="assets/js/navbar.js"></script>
+    </head>
+
+    <body class="bg-gray-50 min-h-screen">
+        <!-- Navbar -->
+        <div id="navbar"></div>
+
+        <!-- Page Title (CONTENT, NOT NAVBAR) -->
+        <div class="max-w-7xl mx-auto px-6 pt-8 pb-4">
+            <h1 class="text-2xl font-semibold text-gray-800">
+                🛒 Create Purchase
+            </h1>
+            <p class="text-sm text-gray-500">
+                Select supplier, add items to cart, and submit purchase order
+            </p>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="max-w-7xl mx-auto px-6 pb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- LEFT : FORM & CART -->
+                <section class="lg:col-span-2 space-y-6">
+                    <!-- Supplier & Add Item -->
+                    <div class="bg-white rounded-2xl shadow p-6 space-y-4">
+                        <h2 class="text-lg font-semibold text-gray-800">
+                            Purchase Form
+                        </h2>
+
+                        <!-- Supplier -->
+                        <div>
+                            <label class="text-sm text-gray-600"
+                                >Supplier</label
+                            >
+                            <select
+                                id="supplier-select"
+                                class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="">-- Select Supplier --</option>
+                            </select>
+                        </div>
+
+                        <!-- Item + Qty -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div>
+                                <label class="text-sm text-gray-600"
+                                    >Item</label
+                                >
+                                <select
+                                    id="item-select"
+                                    class="w-full mt-1 px-4 py-2 border rounded-lg">
+                                    <option value="">-- Select Item --</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="text-sm text-gray-600">Qty</label>
+                                <input
+                                    id="item-qty"
+                                    type="number"
+                                    min="1"
+                                    value="1"
+                                    class="w-full mt-1 px-4 py-2 border rounded-lg" />
+                            </div>
+
+                            <div class="flex items-end">
+                                <button
+                                    id="add-cart-btn"
+                                    class="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                    + Add Item
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CART -->
+                    <div class="bg-white rounded-2xl shadow p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-lg font-semibold text-gray-800">
+                                Cart Items
+                            </h2>
+                            <span class="text-xs text-gray-400">
+                                Remove item if incorrect
+                            </span>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-sm">
+                                <thead class="bg-gray-100 text-gray-600">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left">
+                                            Item
+                                        </th>
+                                        <th class="px-4 py-3 text-left">Qty</th>
+                                        <th class="px-4 py-3 text-left">
+                                            Price
+                                        </th>
+                                        <th class="px-4 py-3 text-left">
+                                            Subtotal
+                                        </th>
+                                        <th class="px-4 py-3 text-left">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cart-table" class="divide-y">
+                                    <tr>
+                                        <td
+                                            colspan="5"
+                                            class="px-4 py-6 text-center text-gray-400">
+                                            Cart is empty
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RIGHT : SUMMARY -->
+                <aside class="space-y-6">
+                    <div class="bg-white rounded-2xl shadow p-6 sticky top-6">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">
+                            Order Summary
+                        </h2>
+
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Items</span>
+                                <span id="summary-items" class="font-medium"
+                                    >0</span
+                                >
+                            </div>
+
+                            <div class="flex justify-between">
+                                <span class="text-gray-500">Total Qty</span>
+                                <span id="summary-qty" class="font-medium"
+                                    >0</span
+                                >
+                            </div>
+
+                            <hr />
+
+                            <div
+                                class="flex justify-between text-base font-semibold">
+                                <span>Total</span>
+                                <span id="summary-total">Rp 0</span>
+                            </div>
+                        </div>
+
+                        <button
+                            id="submit-order-btn"
+                            class="mt-6 w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                            Submit Order
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <!-- PAGE SCRIPT -->
+        <script src="assets/js/pages/purchase.js"></script>
+    </body>
+</html>

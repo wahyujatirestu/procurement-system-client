@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Purchase List | Procurement</title>
+
+        <!-- Tailwind -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- jQuery & SweetAlert -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Font Awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <!-- Core JS -->
+        <script src="assets/js/config.js"></script>
+        <script src="assets/js/api.js"></script>
+        <script src="assets/js/utils.js"></script>
+        <script src="assets/js/navbar.js"></script>
+    </head>
+
+    <body
+        class="bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
+        <!-- Navbar -->
+        <div id="navbar"></div>
+
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+            <!-- Header (NOT Navbar) -->
+            <div class="mb-6">
+                <h1
+                    class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                    🧾 Purchase History
+                </h1>
+                <p class="text-sm text-gray-500 mt-1">
+                    Daftar seluruh transaksi pembelian dari supplier
+                </p>
+            </div>
+
+            <!-- Table Card -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full text-sm">
+                        <thead
+                            class="bg-gray-100 text-gray-600 uppercase text-xs">
+                            <tr>
+                                <th class="px-6 py-4 text-left">ID</th>
+                                <th class="px-6 py-4 text-left">Date</th>
+                                <th class="px-6 py-4 text-left">Supplier</th>
+                                <th class="px-6 py-4 text-left">Created By</th>
+                                <th class="px-6 py-4 text-right">
+                                    Grand Total
+                                </th>
+                                <th class="px-6 py-4 text-center">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody
+                            id="purchase-table"
+                            class="divide-y text-gray-700">
+                            <!-- dynamic -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <script src="assets/js/pages/purchase-list.js"></script>
+    </body>
+</html>
